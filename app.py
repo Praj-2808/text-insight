@@ -18,7 +18,7 @@ from transformers import BartForConditionalGeneration, BartTokenizer, pipeline
 from happytransformer import HappyTextToText, TTSettings
 from flask_caching import Cache
 import os
-import JamSpell
+
 
 
 
