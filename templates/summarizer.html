@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text Summarizer</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <img src="{{ url_for('static', filename='logo.png') }}" alt="Logo">
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/sentiment-analysis">Sentiment Analysis</a></li>
+                    <li><a href="/word-cloud">Word Cloud Generator</a></li>
+                    <li><a href="/spell-checker">Spell Checker</a></li>
+                    <li><a href="/summarizer">Article Summarizer</a></li>
+                    <li><a href="/wikipedia-summarizer">Wikipedia Summarizer</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <div class="hero">
+            <div class="container">
+                <h1>Article Summarization</h1>
+                <h3>Get concise summaries of your articles</h3>
+                <p>Generate short and informative summaries of your articles and documents.</p>
+                <a href="#summarize" class="button">Summarize</a>
+            </div>
+        </div>
+        <div class="container" id="summarize">
+        <form action="/summarizer" method="POST">
+            <textarea name="text" placeholder="Enter text to summarize" rows="10" cols="80"></textarea>
+            <br>
+            <label for="summarization_method">Choose summarization method:</label>
+            <select name="summarization_method">
+                <option value="extractive">Extractive</option>
+                <option value="abstractive">Abstractive</option>
+            </select>
+            <br>
+            <label for="max_ratio">Max summary ratio (0.1 to 1.0):</label>
+            <input type="number" name="max_ratio" step="0.1" min="0.1" max="1.0" value="0.2">
+            <br>
+            <button type="submit" class="button">Summarize</button>
+        </form></div>
+
+    </main>
+    <footer>
+        <p>&copy; 2024 Text Analysis Tool. All rights reserved.</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wikipedia Summarizer</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <img src="{{ url_for('static', filename='logo.png') }}" alt="Logo">
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/word-cloud">Word Cloud Generator</a></li>
+                    <li><a href="/sentiment-analysis">Sentiment Analysis</a></li>
+                    <li><a href="/spell-checker">Spell Checker</a></li>
+                    <li><a href="/summarizer">Article Summarizer</a></li>
+                    <li><a href="/wikipedia-summarizer">Wikipedia Summarizer</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <div class="hero">
+            <div class="container">
+                <h1>Wikipedia Summarization</h1>
+                <h3>Quickly summarize Wikipedia articles</h3>
+                <p>Summarize Wikipedia articles for quick reference and understanding.</p>    
+                <a href="#Summarize-wiki" class="button">Summarize</a>
+            </div>
+        </div>
+        <div class="container" id="Summarize-wiki">
+            <h1>Wikipedia Summarizer</h1>
+            <form method="POST">
+                <div>
+                    <label for="query">Wikipedia Page Title:</label>
+                    <input type="text" id="query" name="query" placeholder="Enter Wikipedia Page Title" required>
+                </div>
+                <div>
+                    <label for="section_title">Section Title (Optional):</label>
+                    <input type="text" id="section_title" name="section_title" placeholder="Enter Section Title">
+                </div>
+                <div>
+                    <label for="num_sentences">Number of Sentences:</label>
+                    <input type="number" id="num_sentences" name="num_sentences" min="1" value="3">
+                </div>
+                <button type="submit" class="button">Summarize</button>
+            </form>
+        </div>
+    </main>
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Text Analysis Tool. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>

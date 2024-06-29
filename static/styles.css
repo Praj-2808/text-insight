@@ -1,0 +1,225 @@
+/* Reset some default styles */
+body, h1, h2, h3, h4, h5, p, ul, ol, li, form, fieldset {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+/* General body styling */
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #121212; /* Dark background color */
+    color: #e0e0e0; /* Light text color for contrast */
+    padding: 0;
+}
+
+/* Container for central alignment */
+.container {
+    max-width: 1200px;
+    margin: auto;
+    padding: 20px;
+}
+
+/* Header styling */
+header {
+    background-color: #1f1f1f; /* Darker header */
+    color: #e0e0e0;
+    padding: 20px 0;
+}
+
+header .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+header .logo img {
+    height: 50px;
+}
+
+header nav ul {
+    list-style: none;
+    display: flex;
+}
+
+header nav ul li {
+    margin-left: 20px;
+}
+
+header nav ul li a {
+    color: #e0e0e0;
+    text-decoration: none;
+    padding: 5px 10px;
+    border-radius: 3px;
+    transition: background-color 0.3s ease;
+}
+
+header nav ul li a:hover {
+    background-color: #333; /* Slightly lighter hover color */
+}
+
+/* Hero section styling */
+.hero {
+    background: linear-gradient(to right, #333, #1f1f1f); /* Dark gradient */
+    color: #e0e0e0;
+    padding: 60px 0;
+    text-align: center;
+}
+
+.hero h1 {
+    margin-bottom: 20px;
+    font-size: 2.5em;
+}
+
+.hero p {
+    margin-bottom: 20px;
+    font-size: 1.2em;
+}
+
+.hero .button {
+    background-color: #ffcc00; /* Bright button for contrast */
+    color: #121212;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.hero .button:hover {
+    background-color: #e6b800;
+}
+
+/* Features section styling */
+.features {
+    padding: 60px 0;
+    background-color: #1f1f1f; /* Dark background for features */
+}
+
+.features h2 {
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 2em;
+    color: #ffcc00; /* Bright color for heading */
+}
+
+.features-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: space-around;
+}
+
+.feature {
+    background-color: #333; /* Dark background for feature boxes */
+    padding: 20px;
+    border: 1px solid #444; /* Slightly lighter border */
+    border-radius: 5px;
+    width: 30%;
+    text-align: center;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.feature img {
+    width: 100px;
+    height: 100px;
+}
+
+.feature h3 {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    color: #ffcc00; /* Bright color for headings */
+}
+
+.feature p {
+    margin-bottom: 20px;
+    color: #ccc; /* Slightly lighter text */
+}
+
+.feature .button {
+    background-color: #ffcc00;
+    color: #121212;
+    padding: 5px 10px;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.feature:hover {
+    background-color: #444;
+    transform: scale(1.05);
+}
+
+.feature .button:hover {
+    background-color: #e6b800;
+}
+
+
+/* Footer styling */
+footer {
+    background-color: #1f1f1f;
+    color: #e0e0e0;
+    text-align: center;
+    padding: 20px 0;
+    margin-top: 20px;
+}
+
+/* General styles for form elements */
+textarea, input[type="text"], input[type="submit"], input[type="button"] {
+    border: 2px solid #9D7748; /* Border color matching the palette */
+    border-radius: 15px; /* Curved corners */
+    padding: 10px;
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    margin-bottom: 20px;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Specific style for the text area */
+textarea {
+    width: 50%;
+    height: 100px; /* Reduce the height of the text area */
+    box-sizing: border-box; /* Ensure padding does not affect width */
+    background-color: #D7DBE0; /* Light background color */
+    color: #4A6779; /* Dark text color */
+}
+
+/* Specific style for the submit button */
+.button {
+    background-color: #ffcc00; /* Button background color */
+    color: #121212; /* Dark text color */
+    padding: 10px 20px; /* Padding for the button */
+    text-decoration: none; /* Remove underline */
+    border-radius: 15px; /* Curved corners */
+    transition: background-color 0.3s ease;
+    text-align: center; /* Center the text inside the button */
+    display: inline-block; /* Make the button inline-block */
+    margin-top: 10px; /* Margin above the button */
+}
+
+/* Hover state for the button */
+.button:hover {
+    background-color: #e6b800; /* Darker background color on hover */
+}
+
+/* Centering the container */
+.form-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center items horizontally */
+    justify-content: center; /* Center items vertically if needed */
+    margin-top: 20px; /* Top margin for the form container */
+}
+
+/* Centering the text area */
+.form-container textarea {
+    width: 50%; /* Adjust width as needed */
+    max-width: 250px; /* Maximum width */
+}
+
+/* Focus state for input fields */
+textarea:focus {
+    border-color: #B48B5C; /* Slightly darker border color on focus */
+    box-shadow: 0 0 5px rgba(180, 139, 92, 0.5); /* Add a shadow on focus */
+    outline: none; /* Remove default outline */
+}

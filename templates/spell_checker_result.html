@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spell Checker Result</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <img src="{{ url_for('static', filename='logo.png') }}" alt="Logo">
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/word-cloud">Word Cloud Generator</a></li>
+                    <li><a href="/sentiment-analysis">Sentiment Analysis</a></li>
+                    <li><a href="/spell-checker">Spell Checker</a></li>
+                    <li><a href="/summarizer">Article Summarizer</a></li>
+                    <li><a href="/wikipedia-summarizer">Wikipedia Summarizer</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <div class="container">
+            <h1>Text Correction Result</h1>
+            <h2>Input Text:</h2>
+            <p>{{ input_text }}</p>
+            <h2>Corrected Text:</h2>
+            <p>{{ corrected_text }}</p>
+            <br>
+            <form action="/spell-checker" method="get">
+                <button type="submit" class="button">Check another text</button>
+            </form>
+        
+        </div>
+        
+    </main>
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Text Analysis Tool. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>

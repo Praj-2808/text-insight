@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sentiment Analysis Results</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <style>
+        .data {
+            border-collapse: collapse;
+            width: 100%;
+        }
+        .data th, .data td {
+            text-align: left;
+            padding: 8px;
+        }
+        .data tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        .data th {
+            background-color: #4CAF50;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <img src="{{ url_for('static', filename='logo.png') }}" alt="Logo">
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/sentiment-analysis">Sentiment Analysis</a></li>
+                    <li><a href="/word-cloud">Word Cloud Generator</a></li>
+                    <li><a href="/spell-checker">Spell Checker</a></li>
+                    <li><a href="/summarizer">Article Summarizer</a></li>
+                    <li><a href="/wikipedia-summarizer">Wikipedia Summarizer</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <div class="container">
+            <h1>Sentiment Analysis Result</h1>
+            {% if choice == 'text' %}
+        <h2>Input Text:</h2>
+        <p>{{ text }}</p>
+        <h2>Polarity:</h2>
+        <p>{{ polarity }}</p>
+        <h2>Subjectivity:</h2>
+        <p>{{ subjectivity }}</p>
+        <h2>Sentiment:</h2>
+        <p>{{ sentiment }}</p>
+    {% elif choice == 'file' %}
+        <h2>Uploaded CSV Data:</h2>
+        {% for table in tables %}
+            {{ table|safe }}
+        {% endfor %}
+        <a href="/download?csv_path={{ csv_path }}" class="button">Download Full Analysis</a>
+        <a href="/show-more?csv_path={{ csv_path }}" class="button">Show More</a>
+    {% endif %}
+
+
+        </div>
+    </main>
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Text Analysis Tool. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>

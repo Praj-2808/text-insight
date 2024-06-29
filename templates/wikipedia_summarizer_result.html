@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wikipedia Summarizer Result</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <img src="{{ url_for('static', filename='logo.png') }}" alt="Logo">
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/word-cloud">Word Cloud Generator</a></li>
+                    <li><a href="/sentiment-analysis">Sentiment Analysis</a></li>
+                    <li><a href="/spell-checker">Spell Checker</a></li>
+                    <li><a href="/summarizer">Article Summarizer</a></li>
+                    <li><a href="/wikipedia-summarizer">Wikipedia Summarizer</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <div class="container">
+            <h1>Wikipedia Summarizer Result</h1>
+            <div>
+                <h2>Query: {{ query }}</h2>
+                <h3>Section: {{ section_title if section_title else 'Entire Page' }}</h3>
+                <h4>Number of Sentences: {{ num_sentences }}</h4>
+                <label>Summary:</label>
+                <p>{{ result }}</p>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Text Analysis Tool. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>

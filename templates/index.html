@@ -1,0 +1,90 @@
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Text Insight</title>
+        
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+
+
+
+    </head>
+    <body>
+    <div class="body">
+        <header>
+            <div class="container">
+                <div class="logo">
+                    <img src="{{ url_for('static', filename='logo.png') }}" alt="Logo">
+                </div>
+                <nav>
+                    <ul>
+                        <li><a href="/">Home</a></li>
+                        <li><a href="/sentiment-analysis">Sentiment Analysis</a></li>
+                        <li><a href="/word-cloud">Word Cloud Generator</a></li>
+                        <li><a href="/spell-checker">Spell Checker</a></li>
+                        <li><a href="/summarizer">Article Summarizer</a></li>
+                        <li><a href="/wikipedia-summarizer">Wikipedia Summarizer</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+        
+        <main>
+            <div class="hero">
+                <div class="container">
+                    <h1>Welcome to Text Insight</h1>
+                    <h3>A comprehensive Text Analysis Tool </h3>
+                    <p>Analyze your text with a variety of tools including sentiment analysis, word cloud generation, spell checking, article summarization, and Wikipedia summarization.</p>
+                    <a href="#features" class="button">Explore Features</a>
+                </div>
+            </div>
+    
+            <div class="features" id="features">
+                <div class="container">
+                    <h2>Our Features</h2>
+                    <div class="features-grid">
+                        <div class="feature">
+                            <img src="{{ url_for('static', filename='sentiment_analysis.png') }}" alt="Sentiment Analysis">
+                            <h3>Sentiment Analysis</h3>
+                            <p>Analyze the sentiment of your text to determine if it is positive, negative, or neutral.</p>
+                            <a href="/sentiment-analysis" class="button">Try Sentiment Analysis</a>
+                        </div>
+                        <div class="feature">
+                            <img src="{{ url_for('static', filename='word_cloud.png') }}" alt="Word Cloud Generator">
+                            <h3>Word Cloud Generator</h3>
+                            <p>Create a visual representation of your text's most frequent words in a word cloud.</p>
+                            <a href="/word-cloud" class="button">Generate Word Cloud</a>
+                        </div>
+                        <div class="feature">
+                            <img src="{{ url_for('static', filename='spell_checker.png') }}" alt="Spell Checker">
+                            <h3>Spell Checker</h3>
+                            <p>Check and correct the spelling in your text.</p>
+                            <a href="/spell-checker" class="button">Check Spelling</a>
+                        </div>
+                        <div class="feature">
+                            <img src="{{ url_for('static', filename='article_summarizer.png') }}" alt="Article Summarizer">
+                            <h3>Article Summarizer</h3>
+                            <p>Summarize your articles to get the key points quickly.</p>
+                            <a href="/summarizer" class="button">Summarize Article</a>
+                        </div>
+                        <div class="feature">
+                            <img src="{{ url_for('static', filename='wikipedia_summarizer.png') }}" alt="Wikipedia Summarizer">
+                            <h3>Wikipedia Summarizer</h3>
+                            <p>Get a quick summary of any topic from Wikipedia.</p>
+                            <a href="/wikipedia-summarizer" class="button">Summarize Wikipedia</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    
+        <footer>
+            <div class="container">
+                <p>&copy; 2024 Text Analysis Tool. All rights reserved.</p>
+            </div>
+        </footer>
+    </div>
+    </body>
+    </html>
+    
