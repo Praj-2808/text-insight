@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spell Checker</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+   <header>
+    <div class="container">
+                <div class="logo">
+                    <ul><a>Text Insight</a><ul>
+                </div>
+                <nav>
+                    <ul>
+                        <li><a href="/">Home</a></li>
+                    </ul>
+                </nav>
+            </div>
+   </header>
+
+    <main>
+        <div class="hero">
+        <div class="container">
+            <h1>Text Similarity Checker</h1>
+            <h3>Compare Two Texts for Similarity</h3>
+            <p>Check how similar two texts are using advanced AI-based text analysis.</p>
+            <a href="#SimilarityCheck" class="button">Check</a>
+        </div>
+    </div>
+
+    <div class="container" id="SimilarityCheck">
+        <h1>Compare Texts</h1>
+        <form action="/text-similarity" method="post">
+            <label for="text1">Enter First Text:</label><br>
+            <textarea id="text1" name="text1" rows="5" cols="60" required></textarea><br><br>
+
+            <label for="text2">Enter Second Text:</label><br>
+            <textarea id="text2" name="text2" rows="5" cols="60" required></textarea><br><br>
+
+            <input type="submit" value="Check Similarity" class="button">
+        </form>
+
+        {% if error %}
+            <p style="color:red">{{ error }}</p>
+        {% endif %}
+    </div>
+
+    </main>
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Text Analysis Tool. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>

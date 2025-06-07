@@ -9,7 +9,6 @@
 <body>
     <header>
     <div class="container">
-    <div class="container">
                 <div class="logo">
                     <ul><a>Text Insight</a><ul>
                 </div>
@@ -21,23 +20,26 @@
             </div>
     </header>
     <main>
-        <div class="hero">
-            <div class="container">
-                <h1>Word Cloud Generation</h1>
-                <h3>Visualize the most important words in your text</h3>
-                <p>Create beautiful word clouds to highlight the key terms in your text.</p>
-                <a href="#Generate" class="button">Generate</a>
-            </div>
+    <main>
+    <div class="hero">
+        <div class="container">
+            <h1>Keyword Extraction</h1>
+            <h3>Extract the most relevant keywords from your text</h3>
+            <p>Automatically identify key terms and phrases to summarize your content effectively.</p>
+            <a href="#Extract" class="button">Extract</a>
         </div>
-    
-        <div class="container" id="Generate">
-            <h3>Generate a Word Cloud</h3>
-            <form action="/word-cloud" method="post">
-            <textarea name="text" rows="10" cols="30"></textarea>
+    </div>
+
+    <div class="container" id="Extract">
+        <h3>Enter Text for Keyword Extraction</h3>
+        <form action="/keyword-extraction" method="post">
+            <textarea name="text" rows="10" cols="30" required></textarea>
             <br>
-            <button type="submit" class="button">Generate Word Cloud</button>
-            </form>
-        </div>
+            <button type="submit" class="button">Extract Keywords</button>
+        </form>
+    </div>
+</main>
+
     </main>
     <footer>
         <div class="container">

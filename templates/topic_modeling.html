@@ -9,7 +9,6 @@
 <body>
     <header>
     <div class="container">
-    <div class="container">
                 <div class="logo">
                     <ul><a>Text Insight</a><ul>
                 </div>
@@ -21,23 +20,26 @@
             </div>
     </header>
     <main>
-        <div class="hero">
-            <div class="container">
-                <h1>Word Cloud Generation</h1>
-                <h3>Visualize the most important words in your text</h3>
-                <p>Create beautiful word clouds to highlight the key terms in your text.</p>
-                <a href="#Generate" class="button">Generate</a>
-            </div>
+    <main>
+    <div class="hero">
+        <div class="container">
+            <h1>Topic Modeling</h1>
+            <h3>Discover hidden themes in your documents</h3>
+            <p>Analyze multiple texts to uncover the main topics using advanced algorithms.</p>
+            <a href="#Model" class="button">Model Topics</a>
         </div>
-    
-        <div class="container" id="Generate">
-            <h3>Generate a Word Cloud</h3>
-            <form action="/word-cloud" method="post">
-            <textarea name="text" rows="10" cols="30"></textarea>
+    </div>
+
+    <div class="container" id="Model">
+        <h3>Enter Documents (one per line)</h3>
+        <form action="/topic-modeling" method="post">
+            <textarea name="documents" rows="10" cols="30" placeholder="Enter each document on a new line" required></textarea>
             <br>
-            <button type="submit" class="button">Generate Word Cloud</button>
-            </form>
-        </div>
+            <button type="submit" class="button">Find Topics</button>
+        </form>
+    </div>
+</main>
+app  
     </main>
     <footer>
         <div class="container">

@@ -15,16 +15,11 @@
         <header>
             <div class="container">
                 <div class="logo">
-                    <img src="{{ url_for('static', filename='logo.png') }}" alt="Logo">
+                    <ul><a>Text Insight</a><ul>
                 </div>
                 <nav>
                     <ul>
                         <li><a href="/">Home</a></li>
-                        <li><a href="/sentiment-analysis">Sentiment Analysis</a></li>
-                        <li><a href="/word-cloud">Word Cloud Generator</a></li>
-                        <li><a href="/spell-checker">Spell Checker</a></li>
-                        <li><a href="/summarizer">Article Summarizer</a></li>
-                        <li><a href="/wikipedia-summarizer">Wikipedia Summarizer</a></li>
                     </ul>
                 </nav>
             </div>
@@ -45,35 +40,55 @@
                     <h2>Our Features</h2>
                     <div class="features-grid">
                         <div class="feature">
-                            <img src="{{ url_for('static', filename='sentiment_analysis.png') }}" alt="Sentiment Analysis">
                             <h3>Sentiment Analysis</h3>
                             <p>Analyze the sentiment of your text to determine if it is positive, negative, or neutral.</p>
                             <a href="/sentiment-analysis" class="button">Try Sentiment Analysis</a>
                         </div>
                         <div class="feature">
-                            <img src="{{ url_for('static', filename='word_cloud.png') }}" alt="Word Cloud Generator">
                             <h3>Word Cloud Generator</h3>
                             <p>Create a visual representation of your text's most frequent words in a word cloud.</p>
                             <a href="/word-cloud" class="button">Generate Word Cloud</a>
                         </div>
                         <div class="feature">
-                            <img src="{{ url_for('static', filename='spell_checker.png') }}" alt="Spell Checker">
                             <h3>Spell Checker</h3>
                             <p>Check and correct the spelling in your text.</p>
                             <a href="/spell-checker" class="button">Check Spelling</a>
                         </div>
                         <div class="feature">
-                            <img src="{{ url_for('static', filename='article_summarizer.png') }}" alt="Article Summarizer">
                             <h3>Article Summarizer</h3>
                             <p>Summarize your articles to get the key points quickly.</p>
                             <a href="/summarizer" class="button">Summarize Article</a>
                         </div>
                         <div class="feature">
-                            <img src="{{ url_for('static', filename='wikipedia_summarizer.png') }}" alt="Wikipedia Summarizer">
                             <h3>Wikipedia Summarizer</h3>
                             <p>Get a quick summary of any topic from Wikipedia.</p>
                             <a href="/wikipedia-summarizer" class="button">Summarize Wikipedia</a>
                         </div>
+
+                        <div class="feature">
+    <h3>Text Similarity Checker</h3>
+    <p>Compare two texts and find how similar they are using advanced algorithms.</p>
+    <a href="/text-similarity" class="button">Check Similarity</a>
+</div>
+
+<div class="feature">
+    <h3>Keyword Extraction</h3>
+    <p>Automatically extract the most relevant keywords and phrases from your text.</p>
+    <a href="/keyword-extraction" class="button">Extract Keywords</a>
+</div>
+
+<div class="feature">
+    <h3>Topic Modeling</h3>
+    <p>Discover the main themes in large document collections using topic modeling.</p>
+    <a href="/topic-modeling" class="button">Explore Topics</a>
+</div>
+
+<div class="feature">
+    <h3>Language Detection & Translation</h3>
+    <p>Detect the language of your text and translate it into your preferred language instantly.</p>
+    <a href="/language-detection" class="button">Detect & Translate</a>
+</div>
+
                     </div>
                 </div>
             </div>

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Wikipedia Summarizer Result</title>
+    <title>Word Cloud Result</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
 </head>
 <body>
@@ -20,16 +20,26 @@
             </div>
     </header>
     <main>
-        <div class="container">
-            <h1>Wikipedia Summarizer Result</h1>
-            <div>
-                <h2>Query: {{ query }}</h2>
-                <h3>Section: {{ section_title if section_title else 'Entire Page' }}</h3>
-                <h4>Number of Sentences: {{ num_sentences }}</h4>
-                <label>Summary:</label>
-                <p>{{ result }}</p>
-            </div>
+     <main>
+    <div class="container">
+        <h1>Topic Modeling Result</h1>
+        <div>
+            {% if topics %}
+                {% for topic in topics %}
+                    <h3>Topic {{ topic.topic_num }}</h3>
+                    <p>Keywords: {{ topic.keywords | join(', ') }}</p>
+                {% endfor %}
+            {% else %}
+                <p>No topics found or input was invalid.</p>
+            {% endif %}
         </div>
+        <br>
+        <form action="/topic-modeling" method="get">
+            <button type="submit" class="button">Try Again</button>
+        </form>
+    </div>
+</main>
+
     </main>
     <footer>
         <div class="container">

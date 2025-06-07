@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Wikipedia Summarizer Result</title>
+    <title>Word Cloud Result</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
 </head>
 <body>
@@ -19,18 +19,28 @@
                 </nav>
             </div>
     </header>
-    <main>
-        <div class="container">
-            <h1>Wikipedia Summarizer Result</h1>
-            <div>
-                <h2>Query: {{ query }}</h2>
-                <h3>Section: {{ section_title if section_title else 'Entire Page' }}</h3>
-                <h4>Number of Sentences: {{ num_sentences }}</h4>
-                <label>Summary:</label>
-                <p>{{ result }}</p>
-            </div>
+
+     <main>
+    <div class="container">
+        <h1>Language Detection & Translation Result</h1>
+        <div>
+            {% if error %}
+                <p style="color:red">{{ error }}</p>
+            {% else %}
+                <h3>Detected Language:</h3>
+                <p>{{ detected_lang }}</p>
+
+                <h3>Translated Text:</h3>
+                <p>{{ translated_text }}</p>
+            {% endif %}
         </div>
-    </main>
+        <br>
+        <form action="/language-detection" method="get">
+            <button type="submit" class="button">Detect & Translate Another Text</button>
+        </form>
+    </div>
+</main>
+
     <footer>
         <div class="container">
             <p>&copy; 2024 Text Analysis Tool. All rights reserved.</p>

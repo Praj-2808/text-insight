@@ -3,12 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Wikipedia Summarizer Result</title>
+    <title>Word Cloud Result</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
 </head>
 <body>
-    <header>
-    <div class="container">
+<div class="container">
                 <div class="logo">
                     <ul><a>Text Insight</a><ul>
                 </div>
@@ -18,19 +17,31 @@
                     </ul>
                 </nav>
             </div>
-    </header>
+
     <main>
-        <div class="container">
-            <h1>Wikipedia Summarizer Result</h1>
-            <div>
-                <h2>Query: {{ query }}</h2>
-                <h3>Section: {{ section_title if section_title else 'Entire Page' }}</h3>
-                <h4>Number of Sentences: {{ num_sentences }}</h4>
-                <label>Summary:</label>
-                <p>{{ result }}</p>
-            </div>
+    <div class="container">
+        <h1>Keyword Extraction Result</h1>
+        <div>
+            <label>Extracted Keywords:</label>
+            {% if keywords %}
+                <ul>
+                    {% for kw in keywords %}
+                        <li>{{ kw }}</li>
+                    {% endfor %}
+                </ul>
+            {% else %}
+                <p>No keywords found or text was empty.</p>
+            {% endif %}
         </div>
-    </main>
+        <br>
+        <form action="/keyword-extraction" method="get">
+            <button type="submit" class="button">Extract Again</button>
+        </form>
+    </div>
+</main>
+
+     
+
     <footer>
         <div class="container">
             <p>&copy; 2024 Text Analysis Tool. All rights reserved.</p>

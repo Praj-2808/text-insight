@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Abstractive Summarizer Result</title>
+    <title>Spell Checker Result</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
 </head>
 <body>
     <header>
-        <div class="container">
+    <div class="container">
                 <div class="logo">
                     <ul><a>Text Insight</a><ul>
                 </div>
@@ -21,15 +21,28 @@
     </header>
     <main>
         <div class="container">
-        <h3>Original Text:</h3>
-        <p>{{ text }}</p>
-        <h3>Summary:</h3>
-        <p>{{ summary }}</p>
-        <a href="/summarizer" class="button" >Back</a>
-        </div>
+        <h1>Similarity Result</h1>
+
+        <h2>Text 1:</h2>
+        <p>{{ text1 }}</p>
+
+        <h2>Text 2:</h2>
+        <p>{{ text2 }}</p>
+
+        <h2>Similarity Score:</h2>
+        <p><strong>{{ similarity_score }}%</strong></p>
+
+        <br>
+        <form action="/text-similarity" method="get">
+            <button type="submit" class="button">Compare Another Pair</button>
+        </form>
+    </div>
     </main>
     <footer>
-        <p>&copy; 2024 Text Analysis Tool. All rights reserved.</p>
+        <div class="container">
+            <p>&copy; 2024 Text Analysis Tool. All rights reserved.</p>
+        </div>
     </footer>
 </body>
 </html>
+

@@ -18,8 +18,13 @@ from transformers import BartForConditionalGeneration, BartTokenizer, pipeline
 from happytransformer import HappyTextToText, TTSettings
 from flask_caching import Cache
 import os
-
-
+from sklearn.feature_extraction.text import TfidfVectorizer
+from sklearn.metrics.pairwise import cosine_similarity
+from sklearn.feature_extraction.text import TfidfVectorizer
+from sklearn.decomposition import LatentDirichletAllocation
+from sklearn.feature_extraction.text import CountVectorizer
+from langdetect import detect
+from googletrans import Translator
 
 
 app = Flask(__name__)
@@ -133,6 +138,7 @@ def spell_checker_page():
     return render_template('spell_checker.html')
 
 
+
 # Load pre-trained model and tokenizer for abstractive summarization
 model_name = 'facebook/bart-large-cnn'
 tokenizer = BartTokenizer.from_pretrained(model_name)
@@ -218,6 +224,114 @@ def wikipedia_summarizer_page():
         return render_template('wikipedia_summarizer_result.html', result=result, query=query, section_title=section_title, num_sentences=num_sentences)
     
     return render_template('wikipedia_summarizer.html')
+
+
+@app.route('/text-similarity', methods=['GET', 'POST'])
+def text_similarity_page():
+    similarity_score = None
+
+    if request.method == 'POST':
+        text1 = request.form['text1']
+        text2 = request.form['text2']
+
+        # Similarity logic
+        vectorizer = TfidfVectorizer()
+        tfidf = vectorizer.fit_transform([text1, text2])
+        similarity = cosine_similarity(tfidf[0:1], tfidf[1:2])
+        similarity_score = round(float(similarity[0][0]) * 100, 2)
+
+        return render_template(
+            'text_similarity_result.html',
+            text1=text1,
+            text2=text2,
+            similarity_score=similarity_score
+        )
+
+    return render_template('text_similarity.html')
+
+@app.route('/keyword-extraction', methods=['GET', 'POST'])
+def keyword_extraction_page():
+    if request.method == 'POST':
+        text = request.form.get('text')
+        if not text or text.strip() == "":
+            error = "Please enter some text."
+            return render_template('keyword_extraction.html', error=error)
+        else:
+            vectorizer = TfidfVectorizer(stop_words='english', max_features=10)
+            X = vectorizer.fit_transform([text])
+            keywords = vectorizer.get_feature_names_out().tolist()
+
+            return render_template(
+                'keyword_extraction_result.html',
+                input_text=text,
+                keywords=keywords
+            )
+
+    return render_template('keyword_extraction.html')
+
+
+
+@app.route('/topic-modeling', methods=['GET', 'POST'])
+def topic_modeling_page():
+    if request.method == 'POST':
+        documents = request.form.get('documents')
+        if not documents or documents.strip() == "":
+            error = "Please enter one or more documents (separated by new lines)."
+            return render_template('topic_modeling.html', error=error)
+        else:
+            docs = [doc.strip() for doc in documents.split('\n') if doc.strip()]
+            if len(docs) < 1:
+                error = "Please enter valid documents."
+                return render_template('topic_modeling.html', error=error)
+            else:
+                n_topics = 3
+                vectorizer = CountVectorizer(stop_words='english')
+                dtm = vectorizer.fit_transform(docs)
+                lda = LatentDirichletAllocation(n_components=n_topics, random_state=42)
+                lda.fit(dtm)
+
+                feature_names = vectorizer.get_feature_names_out()
+                topics = []
+                for idx, topic in enumerate(lda.components_):
+                    top_keywords = [feature_names[i] for i in topic.argsort()[:-11:-1]]
+                    topics.append({'topic_num': idx+1, 'keywords': top_keywords})
+
+                return render_template(
+                    'topic_modeling_result.html',
+                    input_text=documents,
+                    topics=topics
+                )
+
+    return render_template('topic_modeling.html')
+
+
+@app.route('/language-detection', methods=['GET', 'POST'])
+def language_detection_page():
+    if request.method == 'POST':
+        text = request.form.get('text')
+        target_lang = request.form.get('target_lang', 'en')
+
+        if not text or text.strip() == "":
+            error = "Please enter some text."
+            return render_template('language_detection.html', error=error)
+        else:
+            try:
+                detected_lang = detect(text)
+                translator = Translator()
+                translation = translator.translate(text, dest=target_lang)
+                translated_text = translation.text
+
+                return render_template(
+                    'language_detection_result.html',
+                    original_text=text,
+                    detected_lang=detected_lang,
+                    translated_text=translated_text
+                )
+            except Exception as e:
+                error = "Error during detection or translation: " + str(e)
+                return render_template('language_detection.html', error=error)
+
+    return render_template('language_detection.html')
 
 
 @app.route('/')

@@ -8,21 +8,16 @@
 </head>
 <body>
     <header>
-        <div class="container">
-            <div class="logo">
-                <img src="{{ url_for('static', filename='logo.png') }}" alt="Logo">
+    <div class="container">
+                <div class="logo">
+                    <ul><a>Text Insight</a><ul>
+                </div>
+                <nav>
+                    <ul>
+                        <li><a href="/">Home</a></li>
+                    </ul>
+                </nav>
             </div>
-            <nav>
-                <ul>
-                    <li><a href="/">Home</a></li>
-                    <li><a href="/word-cloud">Word Cloud Generator</a></li>
-                    <li><a href="/sentiment-analysis">Sentiment Analysis</a></li>
-                    <li><a href="/spell-checker">Spell Checker</a></li>
-                    <li><a href="/summarizer">Article Summarizer</a></li>
-                    <li><a href="/wikipedia-summarizer">Wikipedia Summarizer</a></li>
-                </ul>
-            </nav>
-        </div>
     </header>
     <main>
         <div class="hero">

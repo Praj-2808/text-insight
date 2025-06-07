@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wikipedia Summarizer</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <header>
+    <div class="container">
+                <div class="logo">
+                    <ul><a>Text Insight</a><ul>
+                </div>
+                <nav>
+                    <ul>
+                        <li><a href="/">Home</a></li>
+                    </ul>
+                </nav>
+            </div>
+    </header>
+    <main>
+        <main>
+    <div class="hero">
+        <div class="container">
+            <h1>Language Detection & Translation</h1>
+            <h3>Detect the language and translate your text instantly</h3>
+            <p>Automatically identify the language and translate it into your preferred language.</p>
+            <a href="#Translate" class="button">Detect & Translate</a>
+        </div>
+    </div>
+
+    <div class="container" id="Translate">
+        <h3>Enter Text to Detect Language & Translate</h3>
+        <form action="/language-detection" method="post">
+            <textarea name="text" rows="10" cols="30" required></textarea>
+            <br>
+            <label for="target_lang">Translate to:</label>
+            <select name="target_lang" id="target_lang">
+                <option value="en">English</option>
+                <option value="hi">Hindi</option>
+                <option value="es">Spanish</option>
+                <option value="fr">French</option>
+                <option value="de">German</option>
+                <!-- add more languages as needed -->
+            </select>
+            <br><br>
+            <button type="submit" class="button">Detect & Translate</button>
+        </form>
+    </div>
+</main>
+
+    </main>
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Text Analysis Tool. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
